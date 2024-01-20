@@ -1,3 +1,6 @@
+// Some basic code testing out a class (see Pokemon.java)
+
+//To Do list
 
 class Main {
     public static void main(String[] args)
