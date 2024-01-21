@@ -5,6 +5,8 @@ Reminder: to compile and run java code normally, navigate to the file's location
     
 -To Do: check how to compile java code all the way to Assembly instructions.
 
+Pokemon Type Chart: https://pokemondb.net/type
+
 I looked at the list of pokemon interactions that have complete immunity to other types.
 I don't recommend using Normal, Ghost, or Dragon types because:
       Normal is not super effective against any type.
