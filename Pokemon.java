@@ -9,6 +9,9 @@
 //chimchar = 1
 //treecko = 2
 //squirtle = 3
+//golbat = 1
+//lucario = 2
+//geodude = 3
 
 // chimchar.strong = 1
 // chimchar.weak = 3
@@ -16,8 +19,17 @@
 // treecko.strong = 2
 // treecko.weak = 1
 
-//squirtle.strong = 3
-//squirtle.weak = 2
+// squirtle.strong = 3
+// squirtle.weak = 2
+
+// golbat.strong = 4
+// golbat.weak = 6
+
+// lucario.strong = 5
+// lucario.weak = 4
+
+// geodude.strong = 6
+// geodude.weak = 5
 
 
 public class Pokemon {

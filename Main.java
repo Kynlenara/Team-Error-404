@@ -10,7 +10,14 @@ class Main {
         Pokemon treecko = new Pokemon("Treecko", "Grass", 2, 1);
         Pokemon squirtle = new Pokemon("Squirtle", "Water", 3, 2);
 
+        // instantiating group2 pokemon
+        Pokemon golbat = new Pokemon("Golbat", "Flying", 4, 6);
+        Pokemon lucario = new Pokemon("Lucario", "Fighting", 5, 4);
+        Pokemon geodude = new Pokemon("Geodude", "Rock", 6, 5);
+        
+
         Pokemon[] group1 = {chimchar, treecko, squirtle};
+        Pokemon[] group2 = {golbat, lucario, geodude};
 
         // instantiate player and computer
         Player pc = new Player("PC", null);
@@ -29,13 +36,13 @@ class Main {
             npc.pokemon = null;
 
             // begin pokemon selection process
-            String message = MessageFormat.format("Select your pokemon!\n|{0}|\t\t|{1}|\t\t|{2}|", group1[0], group1[1], group1[2]);
+            String message = MessageFormat.format("Select your pokemon!\n|{0}|\t\t|{1}|\t\t|{2}|\n|{3}|\t\t|{4}|\t|{5}| ", group1[0], group1[1], group1[2], group2[0], group2[1], group2[2]);
             System.out.println(message);
 
             // player selecting pokemon.  Must choose a valid pokemon to continue the program.
             while (pc.pokemon == null) {
                 String input = scanner.nextLine();
-                game.choosePokemon(pc, group1, input);
+                game.choosePokemon(pc, group1, group2, input);
 
                 //invalid pokemon typed in
                 if (pc.pokemon == null) {
@@ -44,7 +51,7 @@ class Main {
             }
 
             // npc picks its pokemon
-            game.counterpick(pc, npc, group1);
+            game.counterpick(pc, npc, group1, group2);
 
             // rock paper scissors battle
             game.comparePokemon(pc, npc);
