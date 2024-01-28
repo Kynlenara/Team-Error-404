@@ -1,6 +1,5 @@
 overall design for how to program the game (work in progess)
 
-
 order of execution
 
 player gets program message description
@@ -23,77 +22,13 @@ compare pc.pokemon with npc.pokemon
 
 }
 
-if player.wins == 3
+if player gets three wins
     print win screen.
-        print("You beat the rival trainer!")
-else if npc.wins == 3
+
+else if npc wins
     print lose screen
-        print("You lost to your rival!")
-else
-    print("How did you get here?")
 
 exit the program
 
 
-
-
-    could take in bool win variable?
-
-    if win:
-        //checks player pokemon.weakness
-        if weakness == 1
-            choose pokemon.strength == 1
-        else if weakness == 2
-            choose pokemon with strength 2
-        else if weakness == 3
-            choose pokemon with strength 3
-    else:
-        if player.strength == 1:
-            choose pokemon with weakness == 1
-        else if player.strength == 2:
-            choose pokemon with weakness == 2
-        else if player.strength == 3:
-            choose pokemon with weakness 3
-
-
-
-
-
-
-Using object oriented programming, which means using classes
-
-***Classes***
-
-player class
-    has a pokemon
-    int wins
-
-
-
-
-***Functions***
-
-player: select pokemon
-computer: select pokemon
-
-select pokemon(player)
-    assigns a pokemon to the input.
-    player put in? assigns pokemon to player
-    computer put in?  assigns pokemon to player
-
-    //player gets first dibs.  Could remove the chosen pokemon from the list of available pokemon?
-    //check pass by reference vs pass by pointer?
-    //need to pass in a class (player/computer)
-
-compare pokemon(player, comp)
-    takes in player and computer
-    compares strength and weakness
-
-    //could represent strength and weakness of pokemon as numbers.
-    if player.pokemon.strength == computer.pokemon.weakness
-        player wins!
-    else if player.pokemon.weakness == computer.pokemon.strength
-        computer wins!
-    else
-        tie!
 

@@ -1,50 +1,10 @@
-// basic class for pokemon.  We might want to swap strong and weak to be arrays.
-// I don't recommend using any libraries right now, as it might make it harder to reverse engineer?
-
-
-// I looked at the list of pokemon interactions that have complete immunity to other types.
-// I don't recommend using Normal, Ghost, or Dragon types because:
-//      Normal is not super effective against any type.
-//      Ghost is super effective against Ghost.
-//      Dragon is super effective against Dragon.
-
-// This leaves these types behind:
-// Electric, Ground, Poison, Steel, Flying, Psychic, Dark, Fairy, Fighting
-
-
-// ........NO EFFECT........
-
-// Electric -> Ground = no effect
-// Poison -> Steel = no effect
-// Ground -> Flying = no effect
-// Psychic -> Dark = no effect
-// Dragon -> Fairy = no effect
-
-
-// ........SUPER EFFECTIVE........
-
-// Electric -> Flying = super effective
-// Ground -> Electric = super effective
-// Ground -> Poison = super effective
-// Ground -> Steel = super effective
-// Poison -> Fairy = super effective
-// Steel -> Fairy = super effective
-// Flying -> Fighting = super effective
-// Psychic -> Poison = super effective
-// Psychic -> Fighting = super effective
-// Dark -> Psychic = super effective
-// Fairy -> Dark = super effective
-// Fairy -> Fighting = super effective
-// Fighting -> Dark = super effective
-// Fighting -> Steel = super effective
-
-// Of course, we can pick whatever types we want, they don't have to be super effective or no effect.
-// -------------------------------------------------------------------------------------------------------------------------
-
-
 // Chimchar: beats Treecko
 // Treecko: beats Squirtle
 // Squirtle: beats Chimchar
+
+
+//parameters set up like this for comparing pokemon in battle
+    // see comparePokemon function in Game.java for specifics
 
 //chimchar = 1
 //treecko = 2
@@ -66,6 +26,7 @@ public class Pokemon {
     int strong;
     int weak;
 
+    // constructor
     Pokemon(String name, String type, int strong, int weak) {
         this.name = name;
         this.type = type;
@@ -73,6 +34,7 @@ public class Pokemon {
         this.weak = weak;
     }
 
+    // string printed when you print a pokemon
     public String toString() {
         return "Pokemon: " + name + "  Type: " + type;
     }
