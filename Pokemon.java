@@ -73,4 +73,8 @@ public class Pokemon {
         this.weak = weak;
     }
 
+    public String toString() {
+        return "Pokemon: " + name + "  Type: " + type;
+    }
+
 }
