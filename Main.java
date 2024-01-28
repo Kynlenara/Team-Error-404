@@ -20,8 +20,8 @@ class Main {
         Pokemon[] group2 = {golbat, lucario, geodude};
 
         // instantiate player and computer
-        Player pc = new Player("PC", null);
-        Player npc = new Player("NPC", null);
+        Player pc = new Player("Player", null);
+        Player npc = new Player("Rival", null);
 
         // game is used to run the battle between player and npc
         Game game = new Game(pc, npc);
@@ -49,6 +49,8 @@ class Main {
                     System.out.println(message);
                 }
             }
+
+            System.out.println();
 
             // npc picks its pokemon
             game.counterpick(pc, npc, group1, group2);
