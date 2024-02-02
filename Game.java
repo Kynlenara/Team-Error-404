@@ -1,4 +1,4 @@
-
+import java.lang.Thread;
 
 public class Game {
     Player pc;
@@ -19,10 +19,21 @@ public class Game {
     public void comparePokemon(Player pc, Player npc) {
 
         if (pc.pokemon.strong == npc.pokemon.weak) {
+            String message = "The " + pc.pokemon.name + " attacks!";
+            System.out.print(message);
+            wait(1000);
+            
+            System.out.println("\tIt's super effective!");
+            wait(1000);
             System.out.println("Your pokemon won!");
             pc.wins++;
         }
         else if (pc.pokemon.weak == npc.pokemon.strong) {
+            String message = "The " + npc.pokemon.name + " attacks!";
+            System.out.print(message);
+            wait(1000);
+            System.out.println("\tIt's super effective!");
+            wait(1000);
             System.out.println("Your rival's pokemon won!");
             npc.wins++;
         }
@@ -77,7 +88,104 @@ public class Game {
             npc.pokemon = choices2[2];
         }
 
+        System.out.print("Your rival chooses: ");
+        System.out.println(npc.pokemon.name);
+        wait(1000);
+        System.out.println();
+
     }
 
+    // found at https://stackoverflow.com/questions/24104313/how-do-i-make-a-delay-in-java
+    // allowing the program to wait without having to write a try except every time.
+    private static void wait(int ms) {
+        try
+        {
+            Thread.sleep(ms);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    public static void startImage()
+    {
+        System.out.println("\n" +
+                           "\t\t\t\t\t        ▄█████████████████▄        \r\n" + //
+                           "\t\t\t\t\t     ▄███▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓███▄     \r\n" + //
+                           "\t\t\t\t\t    ███▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓███    \r\n" + //
+                           "\t\t\t\t\t   ██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██   \r\n" + //
+                           "\t\t\t\t\t  ██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██  \r\n" + //
+                           "\t\t\t\t\t ██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██ \r\n" + //
+                           "\t\t\t\t\t██▓▓▓▓▓▓▓▓▓▓▓█████████▓▓▓▓▓▓▓▓▓▓▓██\r\n" + //
+                           "\t\t\t\t\t██▓▓▓▓▓▓▓▓▓▓██░░░░░░░██▓▓▓▓▓▓▓▓▓▓██\r\n" + //
+                           "\t\t\t\t\t██▓▓▓▓▓▓▓▓▓██░░█████░░██▓▓▓▓▓▓▓▓▓██\r\n" + //
+                           "\t\t\t\t\t█████████████░░█████░░█████████████\r\n" + //
+                           "\t\t\t\t\t██░░░░░░░░░██░░█████░░██░░░░░░░░░██\r\n" + //
+                           "\t\t\t\t\t██░░░░░░░░░░██░░░░░░░██░░░░░░░░░░██\r\n" + //
+                           "\t\t\t\t\t██░░░░░░░░░░░█████████░░░░░░░░░░░██\r\n" + //
+                           "\t\t\t\t\t ██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██ \r\n" + //
+                           "\t\t\t\t\t  ██░░░░░░░░░░░░░░░░░░░░░░░░░░░██  \r\n" + //
+                           "\t\t\t\t\t   ██░░░░░░░░░░░░░░░░░░░░░░░░░██   \r\n" + //
+                           "\t\t\t\t\t    ███░░░░░░░░░░░░░░░░░░░░░███    \r\n" + //
+                           "\t\t\t\t\t     ▀███░░░░░░░░░░░░░░░░░███▀     \r\n" + //
+                           "\t\t\t\t\t        ▀█████████████████▀        ");
+        
+        System.out.println("\n\n" +
+                           "\t\t\t\t\t\t ╔═══════════════╗\n" +
+                           "\t\t\t\t\t\t ║  Press ENTER  ║\n" +
+                           "\t\t\t\t\t\t ╚═══════════════╝");
+    }
+
+    public void printStats(Player pc, Player npc) {
+        wait(1000);
+
+        System.out.println();
+        //print battle statistics
+        System.out.println(pc);
+        System.out.println(npc);
+        System.out.println();
+
+        wait(2000);
+    }
+
+    public void displayResults(Player pc, Player npc) {
+        System.out.print("The winner is...\n");
+        // if the player won
+        if (pc.wins == 3) {
+            System.out.println("PC!");
+        }
+        // if the computer won
+        else if(npc.wins == 3) {
+            System.out.println("Your rival!");
+        }
+    }
+
+    // display the game rules
+    public boolean rules(String input) {
+        input.toLowerCase();
+        boolean value = false;
+
+        if ((input.equals("y")) || (input.equals("yes"))) {
+            value = true;
+            //clear the screen      found here https://www.javatpoint.com/how-to-clear-screen-in-java
+
+            System.out.println("\n\n" +
+                               " ╔═══════════════╗\n" +
+                               " ║     RULES     ║\n" +
+                               " ╚═══════════════╝\n\n");
+                                
+            System.out.println("You are a Pokemon trainer!\n" +
+                                "You must defeat your rival in a Pokemon battle!  You battle until someone wins three rounds.\n\n" +
+                                "Each round, both you and your rival choose a Pokemon.  Choose the Pokemon by typing its name!\n" +
+                                "\t-If your Pokemon is super effective against your rival's Pokemon, you win the round.\n" +
+                                "\t-If your rival's Pokemon is super effective against your Pokemon, your rival wins the round.\n\n" +
+                                "If you win three rounds, you win the battle!\n\n" +
+                                "Note: super effective is based on each Pokemon's type!\n\n" +
+                                "Let's go!\t(Press ENTER to exit)");
+
+        } 
+        return value;
+    }
 
 }

@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import java.text.MessageFormat;
+//import java.text.MessageFormat;
 
 // the main gameplay loop
 class Main {
@@ -28,6 +28,24 @@ class Main {
 
         // create scanner to take in user input
         Scanner scanner = new Scanner(System.in);
+        String input = null;
+        boolean cont = false;
+
+
+        Game.startImage();
+        scanner.nextLine();
+
+        System.out.print("Would you like to read the rules? y/n ");
+        input = scanner.nextLine();
+
+        if (game.rules(input))
+        {
+            scanner.nextLine();
+        }
+
+
+        // allow the player to play multiple times without having to restart the program
+        do {
 
         while ((pc.wins < 3) && (npc.wins < 3)) {
 
@@ -36,12 +54,12 @@ class Main {
             npc.pokemon = null;
 
             // begin pokemon selection process
-            String message = MessageFormat.format("Select your pokemon!\n|{0}|\t\t|{1}|\t\t|{2}|\n|{3}|\t\t|{4}|\t|{5}| ", group1[0], group1[1], group1[2], group2[0], group2[1], group2[2]);
+            String message = "Select your pokemon!\n|" + group1[0] + "|\t\t|" + group1[1] + "|\t\t|" + group1[2] + "|\n|" + group2[0] + "|\t\t|" + group2[1] + "|\t|" + group2[2] + "| ";
             System.out.println(message);
 
             // player selecting pokemon.  Must choose a valid pokemon to continue the program.
             while (pc.pokemon == null) {
-                String input = scanner.nextLine();
+                input = scanner.nextLine();
                 game.choosePokemon(pc, group1, group2, input);
 
                 //invalid pokemon typed in
@@ -57,22 +75,25 @@ class Main {
 
             // rock paper scissors battle
             game.comparePokemon(pc, npc);
-
-            //print battle statistics
-            System.out.println(pc);
-            System.out.println(npc);
-            System.out.println();
+            game.printStats(pc, npc);
         }
 
-        System.out.print("The winner is...\n");
-        // if the player won
-        if (pc.wins == 3) {
-            System.out.println("PC!");
+        game.displayResults(pc, npc);
+
+        System.out.print("Would you like to play again? y/n ");
+        input = scanner.nextLine();
+        if ((input.equals("y")) || (input.equals("yes"))) {
+            cont = true;
+            pc.wins = 0;
+            npc.wins = 0;
         }
-        // if the computer won
-        else if(npc.wins == 3) {
-            System.out.println("Your rival!");
+        else {
+            cont = false;
         }
+    }
+    while (cont);
+
+        System.out.println("Thank you for playing!");
 
         // don't forget to close the scanner for input
         scanner.close();
