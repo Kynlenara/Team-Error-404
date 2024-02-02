@@ -54,6 +54,7 @@ class Main {
             npc.pokemon = null;
 
             // begin pokemon selection process
+            System.out.println("\n════════════════════════════════════════════════════════════════════════════════════════════════════════════════");
             String message = "Select your pokemon!\n|" + group1[0] + "|\t\t|" + group1[1] + "|\t\t|" + group1[2] + "|\n|" + group2[0] + "|\t\t|" + group2[1] + "|\t|" + group2[2] + "| ";
             System.out.println(message);
 
@@ -86,6 +87,9 @@ class Main {
             cont = true;
             pc.wins = 0;
             npc.wins = 0;
+
+            // clear the screen (kinda), used code from https://stackoverflow.com/questions/2979383/how-to-clear-the-console-using-java
+            System.out.println(System.lineSeparator().repeat(10));
         }
         else {
             cont = false;
