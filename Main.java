@@ -1,5 +1,4 @@
 import java.util.Scanner;
-//import java.text.MessageFormat;
 
 // the main gameplay loop
 class Main {
