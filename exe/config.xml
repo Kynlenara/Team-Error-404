@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>console</headerType>
+  <jar>C:\Users\Grant\OneDrive\Desktop\Team-Error-404\exe\Pokemon.jar</jar>
+  <outfile>C:\Users\Grant\OneDrive\Desktop\Team-Error-404\exe\Pokemon.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl></downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>C:\Users\Grant\Downloads\pokeball_icon_136305.ico</icon>
+  <classPath>
+    <mainClass>Main</mainClass>
+  </classPath>
+  <jre>
+    <path>C:\Program Files\Java\jdk-21\bin</path>
+    <requiresJdk>false</requiresJdk>
+    <requires64Bit>false</requires64Bit>
+    <minVersion></minVersion>
+    <maxVersion></maxVersion>
+  </jre>
+</launch4jConfig>
